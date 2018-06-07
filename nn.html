@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+    ol,ul,li{margin:0;padding:0;list-style:none;}
+    img{border:none;vertical-align:top;}
+    .clearfix:after{
+      display: block;
+      content: "";
+      clear:both;
+    }
+    #wrap{
+      width: 510px;
+      height: 156px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #f66;
+    }
+    ul{
+      width: 208px;
+    }
+    ul li{
+      float: left;
+      border:1px solid #fff;
+      width: 50px;
+      height: 50px;
+      background-color: #ccc;
+    }
+    ul li p{
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <ul class="clearfix">
+      <li>
+        <p style="background-color: red"></p>
+      </li>
+      <li>
+        <p  style="background-color: red"></p>
+      </li>
+      <li>
+        <p  style="background-color: black"></p>
+      </li>
+      <li>
+        <p  style="background-color: yellow"></p>
+      </li>
+      <li>
+        <p  style="background-color: blue"></p>
+      </li>
+      <li>
+        <p  style="background-color: red"></p>
+      </li>
+      <li>
+        <p  style="background-color: yellow"></p>
+      </li>
+      <li>
+        <p  style="background-color: yellow"></p>
+      </li>
+      <li>
+        <p  style="background-color: blue"></p>
+      </li>
+      <li>
+        <p  style="background-color: red"></p>
+      </li>
+      <li>
+        <p  style="background-color: yellow"></p>
+      </li>
+      <li>
+        <p   style="background-color: black"></p>
+      </li>
+    </ul>
+  </div>
+</body>
+<script>
+    var oLis = document.getElementsByTagName("li"),
+        oP =document.getElementsByTagName("p"),
+        num=0,
+        arr=[];
+    for (var i=0;i<oLis.length;i++){
+     (function () {
+        var arg =i;
+        oLis[arg].onclick =function () {
+            oP[arg].style.display ="block";
+            num++;
+            arr[num-1]=oP[arg].style.backgroundColor;
+           if (num>=2){
+               if (arr[0]==arr[1]){
+                   num=0;
+                   alert("yes");
+
+               } else{
+                   alert("no");
+                   oP[arg].style.display="none" ;
+                   num=num-1;
+               }
+           }
+
+         }
+      })();
+    }
+
+</script>
+</html>
